@@ -150,14 +150,14 @@
 
          <distributionManagement>
     <repository>
-      <id>nexus</id>
+      <id>maven-releases</id>
       <name>maven-releases</name>
-      <url>http://18.235.249.207:8081/repository/ekart-release/</url>
+      <url>http://100.24.235.144:8081/repository/maven-releases/</url>
     </repository>
     <snapshotRepository>
-      <id>nexus</id>
+      <id>maven-snapshots</id>
       <name>maven-snapshots</name>
-      <url>http://18.235.249.207:8081/repository/ekart-snapshot/</url>
+      <url>http://100.24.235.144:8081/repository/maven-snapshots/</url>
     </snapshotRepository>
 </distributionManagement>
 
