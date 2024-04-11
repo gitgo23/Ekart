@@ -42,6 +42,27 @@ pipeline {
                 }
             }
         }
+
+        // stage('Owasp Dependency Check') {
+        //     steps {
+        //         dependencyCheck additionalArguments: ' --scan ./', odcInstallation: 'DC'
+        //         dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
+        //     }
+        // }
+
+        stage('Build') {
+            steps {
+                sh "mvn package -DskipTests=true"
+            }
+        }
+
+        stage('Deploy to Nexus') {
+            steps {
+                withMaven(globalMavenSettingsConfig: 'global-maven', jdk: 'jdk17', maven: 'Maven-3.9.6', mavenSettingsConfig: '', traceability: true) {
+                   sh "mvn deploy -DskipTests=true" 
+                }
+            }
+        }
     }
 
     post {
